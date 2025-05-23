@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
         id: user.id,
         name: user.name,
         email: user.email,
-        role: 'admin',
+        role: user.role,
       },
       token,
       refreshToken,
