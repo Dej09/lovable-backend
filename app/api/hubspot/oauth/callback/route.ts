@@ -4,7 +4,7 @@ export async function GET(req: NextRequest) {
   try {
     // Extract the authorization code from the URL
     const code = req.nextUrl.searchParams.get('code');
-    console.log('Code:', code);
+    // console.log('Code:', code);
     
     if (!code) {
       console.error('No code provided in the callback');
@@ -12,8 +12,8 @@ export async function GET(req: NextRequest) {
     }
 
     // Log environment variables for debugging
-    console.log('HUBSPOT_CLIENT_ID:', process.env.HUBSPOT_CLIENT_ID);
-    console.log('HUBSPOT_REDIRECT_URI:', process.env.HUBSPOT_REDIRECT_URI);
+    // console.log('HUBSPOT_CLIENT_ID:', process.env.HUBSPOT_CLIENT_ID);
+    // console.log('HUBSPOT_REDIRECT_URI:', process.env.HUBSPOT_REDIRECT_URI);
     
     // Exchange the code for an access token
     const tokenResponse = await fetch('https://api.hubapi.com/oauth/v1/token', {
@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
     // Parse the token data
     const tokenData = await tokenResponse.json();
     const accessToken = tokenData.access_token;
-    console.log('Access Token:', accessToken);
+    // console.log('Access Token:', accessToken);
     
     // Store the token in your database or session here
     // ...

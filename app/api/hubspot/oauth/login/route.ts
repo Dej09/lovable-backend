@@ -13,13 +13,13 @@ export async function GET() {
       'crm.objects.deals.write'
     ].join('%20');
     
-    console.log('HUBSPOT_CLIENT_ID:', clientId);
-    console.log('HUBSPOT_REDIRECT_URI:', redirectUri);
+    // console.log('HUBSPOT_CLIENT_ID:', clientId);
+    // console.log('HUBSPOT_REDIRECT_URI:', redirectUri);
     
     // Use the EU region endpoint
     const url = `https://app-eu1.hubspot.com/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scopes}`;
     
-    console.log('Redirecting to:', url);
+    // console.log('Redirecting to:', url);
     return NextResponse.redirect(url);
   } catch (error) {
     console.error('Error in HubSpot OAuth login:', error);

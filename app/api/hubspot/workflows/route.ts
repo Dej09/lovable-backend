@@ -6,9 +6,9 @@ export const n8nService = {
   async triggerWorkflow(eventType: string, data: any) {
     try {
       await axios.post(`${n8nWebhookUrl}/workflow`, { eventType, data });
-      console.log('Workflow triggered successfully');
+      // console.log('Workflow triggered successfully');
     } catch (error) {
-      console.error('Error triggering workflow:', error);
+      // console.error('Error triggering workflow:', error);
     }
   }
 };

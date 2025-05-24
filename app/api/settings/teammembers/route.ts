@@ -134,7 +134,7 @@ export async function PUT(request: NextRequest) {
 export async function GET(request: NextRequest) {
     
   try {
-    console.log("Fetching teammembers...");
+    // console.log("Fetching teammembers...");
     const teamMembers = await prisma.user.findMany({
       select: {
         id: true,
