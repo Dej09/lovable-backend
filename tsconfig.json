@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig.json",
+  // "extends": "../tsconfig.json",
   "compilerOptions": {
 		"baseUrl": ".",
     "paths": {
@@ -16,7 +16,14 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
   "include": [
     "next-env.d.ts",
