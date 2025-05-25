@@ -1,2 +1,13 @@
 [build]
-dependencies = { cache: false }
+command = "npm run build"
+publish = "dist"
+dependencies = { cache = false }
+
+[functions]
+directory = "functions"
+node_bundler = "esbuild"
+
+[[redirects]]
+from = "/api/*"
+to = "/.netlify/functions/:splat"
+status = 200
