@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { refreshToken } = body;
-
+    console.log("refreshToken", refreshToken);
     if (!refreshToken) {
       const response = NextResponse.json(
         { message: 'Refresh token is required' },
@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
     // Generate new refresh token
     const newRefreshToken = crypto.randomBytes(40).toString('hex');
     const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + 30); // 30 days from now
+    expiresAt.setDate(expiresAt.getDate() + 2); // 30 days from now
 
     // Update the refresh token in the database
     await prisma.refreshToken.update({
@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
         role: tokenRecord.user.role
       }
     });
-
+    console.log("accessToken", accessToken);
     return corsHeaders(response);
   } catch (error) {
     console.error('Refresh token error:', error);
