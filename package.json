@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
+        "postinstall": "prisma generate && prisma migrate dev && ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/seed.ts",
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
